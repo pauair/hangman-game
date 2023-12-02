@@ -1,0 +1,10 @@
+.button-keyboard-div {
+    display: inline;
+    margin: 0.1vw;
+}
+
+.button-keyboard {
+    padding: 0.6vw;
+    border-color: transparent;
+    border-radius: 0.5vw;
+}

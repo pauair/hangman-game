@@ -1,3 +1,4 @@
+import './Word.css';
 
 function Word({ selectedWord, guessLetters }) {
 
@@ -9,8 +10,8 @@ function Word({ selectedWord, guessLetters }) {
       }
   
       return (
-        <div className="word">
-          <p>Word to guess:</p>
+        <div className="word-div">
+          <p>Guess the animal:</p>
           <div className="word-display">
             {renderWord()}
           </div>

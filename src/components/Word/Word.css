@@ -1,0 +1,10 @@
+.word-div {
+    font-size: 2vw;
+    justify-content: center;
+    padding-top: 1vw;
+}
+
+.word-display {
+    font-size: 3vw;
+    padding: 2vw;
+}
