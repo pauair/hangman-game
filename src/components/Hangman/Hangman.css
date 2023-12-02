@@ -1,10 +1,11 @@
-.hangman-div {
-    display: inline-block;
+.div__hangman {
+    width: 15vw;
+    height: 25vw;
     background-color: #1f7637;
-    padding: 1.5rem;
+    padding: 0.5rem;
     margin: 2vw;
     border-radius: 0.5vw;
     border-style:solid;
     border-color: #4f2e28;
-    border-width: 1.1vw;
+    border-width: 1vw;
 }

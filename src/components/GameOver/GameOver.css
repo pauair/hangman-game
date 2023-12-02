@@ -1,4 +1,19 @@
-.button-try {
-     margin: 1vw;
+.div__game-over {
+    width: 50vw;
+    height: 50vh;  
+    padding-top: 10vh;
+    color: white;
+    background-color:rgba(0, 0, 0, 0.815);
+    align-content: center;
+    border-radius: 2vw;
+}
+
+.div__h2___game-over {
+    display: flex;
+    justify-content: center;
+}
+
+.button__try-again {
+    margin: 2vw;
     padding: 0.5vw;
 }

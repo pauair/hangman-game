@@ -78,15 +78,26 @@ function HangmanGame() {
   }
 
   return (
-    <div className="HangmanGame">
-      <header className="HangmanGame-header">
-        <h1 class="animate__animated animate__slideInDown">HANGMAN</h1>
+    <div className='hangman-game'>
+      <header className='hangman-game__header'>
+        <h1 class='animate__animated animate__slideInDown'>HANGMAN</h1>
       </header>
-      {gameState.restart && <button className='button-newgame' onClick={startGame}>NEW GAME</button>}
-      <Word selectedWord={gameState.selectedWord} guessLetters={gameState.guessLetters} />
-      <Keyboard onLetterClick={handleGuess} onRestartClick={gameState.restart} remainingAttempts={gameState.remainingAttempts} word={gameState.selectedWord} win={checkWin}/>
-      {checkWin() ? <GameOver win={true} onRestartClick={startGame} word={gameState.selectedWord}/> : (checkLoss() && <GameOver win={false} onRestartClick={startGame} word={gameState.selectedWord}/>)}
-      <Hangman remainingAttempts={gameState.remainingAttempts} />
+      <div className='div__control'>
+        <p className='div__ control p__button'>{gameState.restart && <button className='button__newgame' onClick={startGame}>NEW GAME</button>}</p>
+        <p className='div__ control p__attempts'>Remaining Attempts: {gameState.remainingAttempts}</p>
+      </div>
+      <div className='div__end'>
+        {checkWin() ? <GameOver win={true} onRestartClick={startGame} word={gameState.selectedWord}/> : (checkLoss() && <GameOver win={false} onRestartClick={startGame} word={gameState.selectedWord}/>)}
+      </div>
+      <body className='hangman-game__body'>
+        <div className='div__word-keyboard'>
+          <Word selectedWord={gameState.selectedWord} guessLetters={gameState.guessLetters} />
+          <Keyboard onLetterClick={handleGuess} onRestartClick={gameState.restart} remainingAttempts={gameState.remainingAttempts} word={gameState.selectedWord} win={checkWin}/>
+        </div>
+        <div className='div__stickman'>
+          <Hangman remainingAttempts={gameState.remainingAttempts} />
+        </div>
+      </body>
     </div>
   );
 }

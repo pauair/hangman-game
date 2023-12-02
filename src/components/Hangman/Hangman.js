@@ -26,8 +26,8 @@ function Hangman({ remainingAttempts, win }) {
   
     return (
       <>
-      {win === false ? <> </> : <div className="hangman-div">
-        <svg width="15rem" height="25rem" stroke="white">
+      {win === false ? <> </> : <div className='div__hangman'>
+        <svg viewBox='-25 -20 300 700' stroke='white'>
           {partsToShow}
         </svg>
       </div>}
