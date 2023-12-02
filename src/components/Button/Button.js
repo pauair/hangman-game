@@ -11,7 +11,7 @@ function Button({letter, onLetterClick, restart, remainingAttempts, word, win}) 
     if (remainingAttempts === 0 || word === "" || win === true) {
       setButtonDisabled(true);
     }
-  })
+  }, [restart, remainingAttempts, word, win])
 
   function handleClick() {
     if (!buttonDisabled) {

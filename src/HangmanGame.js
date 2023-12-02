@@ -37,17 +37,11 @@ function HangmanGame() {
       restart: true,
       win: false,
     });
-    console.log(word);
-    console.log(splitWord);
   }
 
   function handleGuess(letter) {
     // game status
-    const { selectedWord, guessLetters, winLetters, remainingAttempts, qtyGuess } = gameState;
-    console.log(selectedWord);
-    console.log(winLetters);
-    console.log(letter);
-    console.log("intentos restantes", remainingAttempts);
+    const { guessLetters, winLetters, remainingAttempts, qtyGuess } = gameState;
     if (winLetters.includes(letter)) {
       // letter is in the word
       const newQtyGuess = qtyGuess + 1;

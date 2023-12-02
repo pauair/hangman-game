@@ -9,3 +9,33 @@
     border-color: #4f2e28;
     border-width: 1vw;
 }
+
+@media screen and (max-width: 490px) {
+    .div__hangman {
+        margin: 1vw;
+        padding: 2vw;
+        width: 50vw;
+        height: 40vh;
+        border-width: 2vw;
+    }
+}
+
+@media screen and (min-width: 490px) and (max-width: 650px){
+    .div__hangman {
+        margin: 1vw;
+        padding: 3vw;
+        width: 40vw;
+        height: 42vh;
+        border-width: 2vw;
+    }
+}
+
+@media screen and (min-width: 650px) and (max-width: 900px){
+    .div__hangman {
+        margin: 1vw;
+        padding: 2vw;
+        width: 40vw;
+        height: 60vh;
+        border-width: 2vw;
+    }
+}

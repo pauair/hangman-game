@@ -3,7 +3,7 @@
     height: 50vh;  
     padding-top: 10vh;
     color: white;
-    background-color:rgba(0, 0, 0, 0.815);
+    background-color:rgba(0, 0, 0, 0.725);
     align-content: center;
     border-radius: 2vw;
 }
@@ -16,4 +16,11 @@
 .button__try-again {
     margin: 2vw;
     padding: 0.5vw;
+}
+
+@media screen and (max-width: 1000px) {
+    .div__game-over {
+        height: 25vh;
+        width: 70vw;
+    }
 }

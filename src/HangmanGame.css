@@ -17,7 +17,7 @@
     rgba(110, 109, 109, 0.441)
   ),url(./assets/images/initial_background.jpg);
   background-size: 50%;
-  height: 150vh;
+  height: 130vh;
 }
 
 .hangman-game__header {
@@ -26,7 +26,7 @@
   height: 5vh;
   align-self: center;
   justify-content: center;
-  font-size: 3.3vh;
+  font-size: 3.7vh;
   color: rgb(0, 0, 0);
   background-color: transparent;
 }
@@ -52,7 +52,7 @@
 }
 
 .p__button {
-  padding-top: 2vw;
+  padding: 2vw;
 }
 
 .button__newgame {
@@ -76,4 +76,42 @@
 .div__end {
   position: absolute;
   margin-top: 25vh;
+}
+
+@media screen and (max-width: 900px) {
+  .hangman-game__body {
+    justify-content: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 2fr;
+  }
+
+  .p__attempts {
+    margin-top: 2vh;
+    font-size: 1.7vh;
+  }
+
+  .p__button {
+    margin-top: 2vh;
+  }
+    
+  .hangman-game__header {
+      padding: 4vh;
+  }
+
+  .div__word-keyboard {
+    align-items: center;
+    grid-row: 1;
+    padding: 5vh;
+  }
+  
+  .div__stickman {
+    display: flex;
+    justify-content: center;
+    grid-row: 2;
+  }
+
+  .div__end {
+    margin-top: 20vh;
+  }
+
 }
