@@ -19,8 +19,8 @@ function HangmanGame() {
     selectedWord: "",
     guessLetters: [],
     winLetters: selectRandomWord().split(""),
-    remainingAttempts: 8,
-    qtyGuess: 0,
+    initialAttempts: 0,
+    remainingAttempts: 0,
     restart: true,
     win: false,
     score: 0,
@@ -33,12 +33,13 @@ function HangmanGame() {
     const word = selectRandomWord();
     const splitWord = word.split("");
     const maxSc = (splitWord.length)*6;
+    const maxAttmp = (splitWord.length)+3;
     setGameState({
       selectedWord: word,
       guessLetters: [],
       winLetters: splitWord, // selected word letters
-      remainingAttempts: 8,
-      qtyGuess: 0, // qty guess letters
+      initialAttempts: maxAttmp,
+      remainingAttempts: maxAttmp,
       restart: true,
       win: false,
       score: 0,
@@ -49,15 +50,13 @@ function HangmanGame() {
 
   function handleGuess(letter) {
     // game status
-    const { guessLetters, winLetters, remainingAttempts, qtyGuess, score, maxScore } = gameState;
+    const { guessLetters, winLetters, remainingAttempts, score} = gameState;
     if (winLetters.includes(letter)) {
       // letter is in the word
-      const newQtyGuess = qtyGuess + 1;
       const newGuessLetters = [...guessLetters, letter];
-      const newScore = (score < (maxScore-6)) ? (score + 6) : score;
+      const newScore = score+6;
       setGameState({
         ...gameState,
-        qtyGuess: newQtyGuess,
         guessLetters: newGuessLetters,
         restart: false,
         score: newScore,
@@ -80,7 +79,7 @@ function HangmanGame() {
   }
 
   function checkLoss() {
-    return (gameState.remainingAttempts <= 0) && (gameState.remainingAttempts !== 8);
+    return (gameState.remainingAttempts <= 0) && (gameState.remainingAttempts !== gameState.initialAttempts);
   }
 
   function showRules() {
@@ -113,7 +112,7 @@ function HangmanGame() {
         </div>
       </div>
       <div className='div__end animate__animated animate__fadeInDown'>
-        {checkWin() ? <GameOver win={true} onRestartClick={startGame} word={gameState.selectedWord} score={gameState.score+6} maxScore={gameState.maxScore}/> : (checkLoss() && <GameOver win={false} onRestartClick={startGame} word={gameState.selectedWord} score={0} maxScore={gameState.maxScore} />)}
+        {checkWin() ? <GameOver win={true} onRestartClick={startGame} word={gameState.selectedWord} score={gameState.score} maxScore={gameState.maxScore}/> : (checkLoss() && <GameOver win={false} onRestartClick={startGame} word={gameState.selectedWord} score={0} maxScore={gameState.maxScore} />)}
         {(gameState.showRules) && <GameRules hide={hideRules}/>}
       </div>
       <div className='hangman-game__body animate__animated animate__fadeInUp'>
