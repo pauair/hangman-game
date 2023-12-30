@@ -8,7 +8,7 @@ function Button({letter, onLetterClick, restart, remainingAttempts, word, win}) 
     if (restart) {
       setButtonDisabled(false);
     }
-    if (remainingAttempts === 0 || word === "" || win === true) {
+    if (win === true || remainingAttempts === 0 || word === "") {
       setButtonDisabled(true);
     }
   }, [restart, remainingAttempts, word, win])

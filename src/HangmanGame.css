@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@300&display=swap');
 * {
   font-family: 'Architects Daughter', cursive;
   margin: 0;
@@ -39,25 +39,35 @@
 
 .div__control {
   display: grid;
+  margin-top: 2vw;
   width: 95%;
   grid-template-columns: 2fr 1fr;
   align-items: center;
   background-color: transparent;
 }
 
+.div__control-buttons {
+  display: flex;
+}
+
 .p__attempts {
-  padding: 2vw;
+  padding-bottom: 0vw;
   font-size: 1.3vw;
 }
 
 .p__button {
+  display: flex;
   padding: 1.5vw;
 }
 
-.button__newgame {
+.button__newgame, .button__showrules {
   padding: 0.5vw;
   color: white;
   background-color: rgb(86, 86, 86);
+}
+
+.button__newgame {
+  background-color: #1f7637;
 }
 
 .div__word-keyboard {
@@ -85,12 +95,8 @@
   }
 
   .p__attempts {
-    margin-top: 2vh;
     font-size: 1.7vh;
-  }
-
-  .p__button {
-    margin-top: 2vh;
+    padding-bottom: 0vw;
   }
     
   .hangman-game__header {

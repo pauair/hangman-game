@@ -11,7 +11,7 @@ function Word({ selectedWord, guessLetters }) {
   
       return (
         <div className="word-div">
-          <p>Guess the animal:</p>
+          <p>Guess the hidden animal before the figure is completed</p>
           <div className="word-display">
             {renderWord()}
           </div>
