@@ -3,9 +3,9 @@ import './GameOver.css';
 
 function GameOver({ win, onRestartClick, word, score, maxScore}) {
   return (
-    <div className="div__game-over">
-      {win ? (<><h2 className='div__h2___game-over animate__animated animate__heartBeat'>¡ YOU WIN !</h2><h3 className='div__h2___game-over'>Your score: {score}/{maxScore} </h3></>) : (<><h2 className='div__h2___game-over' class="animate__animated animate__fadeIn">GAME OVER.</h2> <h3 className='div__h2___game-over'>The word was {word}</h3> <h4 className='div__h2___game-over'>Your score: {score}</h4></>)}
-      <button className="button__try-again" onClick={onRestartClick}>TRY AGAIN</button>
+    <div className='div-gameover z-10 mt-6 p-20 lg:p-10 lg:px-6 text-white border rounded-2xl content-center'>
+      {win ? (<><h2 className='div-gameover-h2 flex justify-center text-3xl pb-4 font-semibold text-green-500 animate__animated animate__heartBeat'>¡ YOU WIN !</h2><h3 className='div-gameover-h2 flex justify-center text-xl'>Your score: {score}/{maxScore} </h3></>) : (<><h2 className='div-gameover-h2 flex justify-center text-red-700 text-3xl pb-4 font-semibold animate__animated animate__fadeIn'>GAME OVER</h2> <h3 className='div-gameover-p text-xl'>The word was {word}</h3> <h4 className='div-gameover-p text-xl'>Your score: {score}</h4></>)}
+      <button className='div-gameover-button mt-12 p-2 border rounded-lg' onClick={onRestartClick}>TRY AGAIN</button>
     </div>
   );
 }

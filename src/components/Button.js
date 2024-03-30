@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import './Button.css'
 
 function Button({letter, onLetterClick, restart, remainingAttempts, word, win}) {
   const [buttonDisabled, setButtonDisabled] = useState(false);
@@ -21,8 +20,8 @@ function Button({letter, onLetterClick, restart, remainingAttempts, word, win}) 
   }
 
   return (
-    <div className="button-keyboard-div">
-      <button className="button-keyboard" onClick={handleClick} disabled={buttonDisabled}>
+    <div className='div-keyboard-button inline'>
+      <button className='keyboard-button py-1 px-2 m-1 text-white bg-green-700 rounded-lg disabled:bg-zinc-500 disabled:text-black' onClick={handleClick} disabled={buttonDisabled}>
         {letter}
       </button>
     </div>

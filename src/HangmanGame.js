@@ -1,8 +1,8 @@
 import './HangmanGame.css';
 import 'animate.css'
-import Word from './components/Word/Word';
-import Hangman from './components/Hangman/Hangman';
-import Keyboard from './components/Keyboard/Keyboard';
+import Word from './components/Word';
+import Hangman from './components/Hangman';
+import Keyboard from './components/Keyboard';
 import GameOver from './components/GameOver/GameOver';
 import { useState } from 'react';
 import GameRules from './components/GameRules/GameRules';
@@ -33,7 +33,7 @@ function HangmanGame() {
     const word = selectRandomWord();
     const splitWord = word.split("");
     const maxSc = (splitWord.length)*6;
-    const maxAttmp = (splitWord.length)+3;
+    const maxAttmp = (splitWord.length)+2;
     setGameState({
       selectedWord: word,
       guessLetters: [],
@@ -97,30 +97,30 @@ function HangmanGame() {
   }
 
   return (
-    <div className='hangman-game'>
-      <header className='hangman-game__header'>
+    <div className='hangman-game text-center flex flex-col items-center bg-repeat min-h-screen'>
+      <header className='pt-14 pb-4 lg:py-6 self-center justify-center text-7xl text-black bg-transparent'>
         <h1 className='animate__animated animate__slideInDown'>HANGMAN</h1>
       </header>
-      <div className='div__control'>
-        <div className='div__control-buttons'>
-          <p className='p__button animate__animated animate__fadeInLeft'>{<button className='button__showrules' onClick={showRules}>RULES</button>}</p>
-          <p className='p__button animate__animated animate__fadeInLeft'>{gameState.restart && <button className='button__newgame' onClick={startGame}>NEW GAME</button>} </p>
+      <div className='lg:grid w-11/12 lg:grid-cols-5 items-center bg-transparent'>
+        <div className='div-actions inline-flex lg:flex lg:col-start-1 lg:col-end-4'>
+          <p className='flex p-6 animate__animated animate__fadeInLeft'>{<button className='p-2 rounded-md text-white bg-zinc-500' onClick={showRules}>HOW TO PLAY</button>}</p>
+          <p className='flex p-6 animate__animated animate__fadeInLeft'>{gameState.restart && <button className='p-2 rounded-md text-white bg-green-600' onClick={startGame}>NEW GAME</button>} </p>
         </div>
-        <div>
-          <p className='p__attempts animate__animated animate__fadeInRight'>Remaining Attempts: {gameState.remainingAttempts}</p>
-          <p className='p__attempts animate__animated animate__fadeInRight'>Score: {gameState.score} </p>
+        <div className='div-stats text-center font-semibold items-center lg:col-start-4 lg:col-end-6'>
+          <p className='text-xl animate__animated animate__fadeInRight'>Remaining Attempts: {gameState.remainingAttempts}</p>
+          <p className='text-xl animate__animated animate__fadeInRight'>Score: {gameState.score} </p>
         </div>
       </div>
-      <div className='div__end animate__animated animate__fadeInDown'>
+      <div className='div-end z-10 p-6 lg:p-4 absolute mt-24 lg:mt-28 lg:w-1/2 animate__animated animate__fadeInDown'>
         {checkWin() ? <GameOver win={true} onRestartClick={startGame} word={gameState.selectedWord} score={gameState.score} maxScore={gameState.maxScore}/> : (checkLoss() && <GameOver win={false} onRestartClick={startGame} word={gameState.selectedWord} score={0} maxScore={gameState.maxScore} />)}
         {(gameState.showRules) && <GameRules hide={hideRules}/>}
       </div>
-      <div className='hangman-game__body animate__animated animate__fadeInUp'>
-        <div className='div__word-keyboard'>
+      <div className='div-word px-4 lg:px-8 justify-center lg:grid lg:grid-cols-5 animate__animated animate__fadeInUp'>
+        <div className='div-keyboard text-2xl items-center lg:col-start-1 lg:col-end-4 lg:p-8'>
           <Word selectedWord={gameState.selectedWord} guessLetters={gameState.guessLetters} />
           {checkWin() ? <Keyboard onLetterClick={handleGuess} onRestartClick={gameState.restart} remainingAttempts={gameState.remainingAttempts} word={gameState.selectedWord} win={true} /> : <Keyboard onLetterClick={handleGuess} onRestartClick={gameState.restart} remainingAttempts={gameState.remainingAttempts} word={gameState.selectedWord} win={false} />}
         </div>
-        <div className='div__stickman'>
+        <div className='div-stickman flex justify-center lg:col-start-4 lg:col-end-6'>
           <Hangman remainingAttempts={gameState.remainingAttempts} />
         </div>
       </div>

@@ -1,5 +1,3 @@
-import './Word.css';
-
 function Word({ selectedWord, guessLetters }) {
 
     function renderWord() {
@@ -10,9 +8,9 @@ function Word({ selectedWord, guessLetters }) {
       }
   
       return (
-        <div className="word-div">
-          <p>Guess the hidden animal before the figure is completed</p>
-          <div className="word-display">
+        <div className="word-div p-4 lg:p-2 lg:text-xl justify-center">
+          <p className="lg:pb-4 max-lg:hidden">Guess the hidden animal before the figure is completed</p>
+          <div className="word-display p-8 text-5xl">
             {renderWord()}
           </div>
         </div>

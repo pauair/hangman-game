@@ -1,5 +1,4 @@
 import React from "react";
-import './Hangman.css';
 
 function Hangman({ remainingAttempts, win }) {
     // hangman parts SVG elements
@@ -30,8 +29,8 @@ function Hangman({ remainingAttempts, win }) {
   
     return (
       <>
-      {win === false ? <> </> : <div className='div__hangman'>
-        <svg viewBox='-25 -20 300 700' stroke='white'>
+      {win === false ? <> </> : <div className='div-hangman bg-green-800 p-2 m-4 rounded-lg border-12 border-solid border-yellow-950 w-60 h-88'>
+        <svg viewBox='-25 -20 300 475' stroke='white' stroke-width='4' stroke-linecap='round' stroke-dasharray='4,2' stroke-opacity='0.8' fill='none'>
           {partsToShow}
         </svg>
       </div>}
